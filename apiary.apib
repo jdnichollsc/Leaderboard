@@ -1,0 +1,66 @@
+FORMAT: 1A
+HOST: http://leaderboard.upb.org/
+
+# Leaderboard
+Stores players scores and sorts them in a leaderboard.
+
+## Users [/users/{id}]
+
+### Retrieves a player's data with the last score [GET]
+
++ Response 200 (application/json)
+
+        {
+            "username": "juan.riosq",
+            "name": "Juan Camilo Rios Quintero",
+            "score": 700,
+            "updated_at": "2017-08-26T13:18:05"
+        }
+        
+### Stores player's new score [POST]
+
++ Request (application/json)
+
+        {
+            "score": 1000,
+            "level": 1
+        }
+        
++ Response 200
+
+## User leaderboard [/leaderboard/{level}/{position}]
+
+### Retrieves a player's leaderboard position [GET]
+
++ Response 200 (application/json)
+
+        {
+            "position": 1
+        }
+        
+## Global leaderboard [/leaderboard/{level}{?pageSize,page}]
+
+### Retrives paged leaderboard starting from the first player [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "position": 1,
+                "id": "HFG0555",
+                "name": "rawrcrush",
+                "score": 500
+            },
+            {
+                "position": 2,
+                "id": "HFG0555",
+                "name": "rawrcrush",
+                "score": 500
+            },
+            {
+                "position": 3,
+                "id": "HFG0555",
+                "name": "rawrcrush",
+                "score": 500
+            }
+        ]
